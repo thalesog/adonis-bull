@@ -125,12 +125,12 @@
   "typings": "build/adonis-typings/index.d.ts",
   "adonisjs": {
     "instructions": "./build/instructions.js",
-    "types": "@rocketseat/adonis-bull",
+    "types": "@thalesog/adonis-bull",
     "providers": [
-      "@rocketseat/adonis-bull"
+      "@thalesog/adonis-bull"
     ],
     "commands": [
-      "@rocketseat/adonis-bull/build/commands"
+      "@thalesog/adonis-bull/build/commands"
     ]
   }
 }

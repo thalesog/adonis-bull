@@ -1,5 +1,5 @@
 export default [
-  '@rocketseat/adonis-bull/build/commands/MakeJob',
-  '@rocketseat/adonis-bull/build/commands/MakeException',
-  '@rocketseat/adonis-bull/build/commands/Listen',
+  '@thalesog/adonis-bull/build/commands/MakeJob',
+  '@thalesog/adonis-bull/build/commands/MakeException',
+  '@thalesog/adonis-bull/build/commands/Listen',
 ]
