@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { Filesystem } from '@poppinss/dev-utils'
-import { Application } from '@adonisjs/application'
+import { Application } from '@adonisjs/core/build/standalone'
 
 import { FakeLogger } from '@adonisjs/logger'
 
@@ -48,7 +48,7 @@ export async function setupApplication(
   await fs.add(
     'start/jobs.ts',
     `
-    export default ['App/SomeJob']
+    export default ['App/Jobs/SomeJob']
   `
   )
 
@@ -76,6 +76,8 @@ export async function setupApplication(
   )
 
   const app = new Application(fs.basePath, environment, {
+    // Fix tests -- add App alias
+    aliases: { App: 'app' },
     providers: ['@adonisjs/core', '../../providers/BullProvider'],
   })
 

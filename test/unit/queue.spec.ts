@@ -44,6 +44,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const queue = bull.getByKey(jobDefinition.key)
@@ -80,6 +81,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     bull.getByKey(jobDefinition.key)
@@ -113,6 +115,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const job = await bull.add(jobDefinition.key, data)
@@ -141,6 +144,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const queue = bull.getByKey(jobDefinition.key)
@@ -191,6 +195,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const queue = bull.getByKey(jobDefinition.key)
@@ -224,6 +229,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const job = await bull.schedule(jobDefinition.key, data, 1000)
@@ -254,6 +260,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     const job = await bull.schedule(
@@ -284,6 +291,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     assert.throw(() => {
@@ -307,6 +315,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     await bull.schedule(jobDefinition.key, data, 1000, { jobId: '1' })
@@ -342,6 +351,7 @@ test.group('Bull', (group) => {
       'App/Jobs/TestBull',
     ])
     const jobDefinition = ioc.use('App/Jobs/TestBull')
+    bull.addProcessor(jobDefinition.key, jobDefinition)
     const data = { test: 'data' }
 
     bull.process()
