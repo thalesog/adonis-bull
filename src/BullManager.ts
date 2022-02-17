@@ -18,6 +18,7 @@ import {
   Worker,
   WorkerOptions,
   Processor,
+  WorkerListener,
 } from 'bullmq'
 import { createBullBoard } from '@bull-board/api'
 import { ExpressAdapter } from '@bull-board/express'
@@ -73,7 +74,10 @@ export class BullManager implements BullManagerContract {
       if (method.startsWith('on')) {
         const eventName = method
           .replace(/^on(\w)/, (_, group) => group.toLowerCase())
-          .replace(/([A-Z]+)/, (_, group) => ` ${group.toLowerCase()}`)
+          .replace(
+            /([A-Z]+)/,
+            (_, group) => ` ${group.toLowerCase()}`
+          ) as keyof WorkerListener
 
         events.push({ eventName, method })
       }

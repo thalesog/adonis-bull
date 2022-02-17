@@ -13,7 +13,7 @@ import { fs, MyFakeLogger } from '../../test-helpers'
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-const CONNECTION_CONFIG = ({
+const CONNECTION_CONFIG = {
   connection: 'local',
   connections: {
     local: {
@@ -22,7 +22,7 @@ const CONNECTION_CONFIG = ({
       password: process.env.REDIS_PASSWORD || '',
     },
   },
-} as unknown) as BullConfig
+} as unknown as BullConfig
 
 test.group('Bull', (group) => {
   group.beforeEach(async () => {
@@ -38,7 +38,7 @@ test.group('Bull', (group) => {
       async handle() {},
     }))
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -75,7 +75,7 @@ test.group('Bull', (group) => {
       })()
     })
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -109,7 +109,7 @@ test.group('Bull', (group) => {
       },
     }))
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -138,7 +138,7 @@ test.group('Bull', (group) => {
       })()
     })
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -176,7 +176,7 @@ test.group('Bull', (group) => {
       })()
     })
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     class FakeExceptionHandler extends BullExceptionHandler {
       constructor() {
@@ -223,7 +223,7 @@ test.group('Bull', (group) => {
         })()
     )
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -254,7 +254,7 @@ test.group('Bull', (group) => {
         })()
     )
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -285,7 +285,7 @@ test.group('Bull', (group) => {
       async handle() {},
     }))
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -309,7 +309,7 @@ test.group('Bull', (group) => {
       async handle() {},
     }))
 
-    const logger = (new FakeLogger({} as any) as unknown) as LoggerContract
+    const logger = new FakeLogger({} as any) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
@@ -342,10 +342,10 @@ test.group('Bull', (group) => {
       })()
     })
 
-    const logger = (new MyFakeLogger(
+    const logger = new MyFakeLogger(
       assert,
       {} as any
-    ) as unknown) as LoggerContract
+    ) as unknown as LoggerContract
 
     const bull = new BullManager(ioc, logger, CONNECTION_CONFIG, [
       'App/Jobs/TestBull',
