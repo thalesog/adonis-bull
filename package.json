@@ -18,7 +18,7 @@
     "publish:alpha": "np --branch=alpha --tag=alpha"
   },
   "np": {
-    "yarn": false,
+    "yarn": true,
     "contents": ".",
     "anyBranch": false
   },
@@ -111,8 +111,8 @@
     "@adonisjs/core": "^5.3.4"
   },
   "dependencies": {
-    "@bull-board/express": "^3.9.4",
-    "bullmq": "^1.73.0"
+    "@bull-board/express": "^3.10.3",
+    "bullmq": "^1.79.0"
   },
   "files": [
     "build/adonis-typings",
